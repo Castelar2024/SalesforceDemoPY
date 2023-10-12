@@ -1,0 +1,269 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
+}
+::selection{
+  color: #fff;
+  background: #00C9A7;
+}
+
+
+/* Añade !important a las propiedades CSS para asegurarte de que se apliquen */
+.container {
+  width: calc(330px + 10%); /* Aumenta el ancho en un 10% */
+  margin: 0 auto; /* Centra el formulario horizontalmente */
+  background: #12192c !important;
+  color: #fff !important;
+  text-align: center !important;
+  border-radius: 5px !important;
+  padding: 30px 35px 10px 35px !important;
+  float: right !important;
+}
+.container header{
+  font-size: 35px;
+  font-weight: 600;
+}
+.container .form-outer{
+  width: 100%;
+  overflow: hidden;
+}
+.container .form-outer form{
+  display: flex;
+  width: 400%;
+}
+
+
+
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outer form .page .title{
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+/* Estilo para centrar los campos del formulario en el medio */
+.form-outer form .page .field {
+  width: 100%;
+  max-width: 330px; /* Ajusta el ancho máximo según tus necesidades */
+  margin: 15px auto; /* Agregamos márgenes verticalmente para separar los campos */
+  text-align: left; /* Alinea el texto del campo a la izquierda si es necesario */
+  display: inline-block;
+}
+/* Resto de los estilos de los campos */
+form .page .field .label {
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input {
+  height: 100%;
+  width: 100%;
+  border: 5px solid #eee;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+form .field input:focus,
+form .field.valid input {
+  border-color: #00C9A7;
+}
+form .page .field select {
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+form .page .field button {
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #00C9A7;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .page .field button:hover{
+  background: #22E4AC;
+}
+
+form .page .btns button.prev{
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .page .btns button.next{
+  margin-left: 3px;
+}
+.container .progress-bar{
+  display: flex;
+  margin: 25px 0;
+  user-select: none;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid #fff;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color: #12192c;
+  background: #00C9A7;
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  /*background: #262626;*/
+}
+.progress-bar .step .bullet.active:after{
+  background: #00C9A7;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color: #00C9A7;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
+}
+.credit{
+    text-align: center;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.credit a{
+    text-decoration: none;
+    color: #00C9A7;
+    font-weight: bold;
+} 
+/* Estilos para pantallas medianas */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100% !important;
+    padding: 20px !important;
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 10px !important;
+  }
+}
+
+/* Otros estilos responsivos aquí */
+
+/* Estilos generales para la barra de progreso y los pasos */
+.progress-bar {
+  display: flex;
+  margin: 25px 0;
+  user-select: none;
+}
+.form-outer form .page .btns button.prev {
+  margin-bottom: 10px; /* Add margin to the bottom of the "Previous" button */
+}
+
+.form-outer form .page .btns button.next {
+  margin-top: 10px; /* Add margin to the top of the "Next" button */
+}
+#success-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000; /* Cambia el color del texto a negro */
+  background: transparent; /* Elimina el fondo oscuro */
+  padding: 20px; /* Añade un espacio alrededor del texto */
+  font-size: 24px; /* Ajusta el tamaño del texto según sea necesario */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+#success-message p {
+  font-size: 24px;
+}
+.confetti {
+  width: 10px;
+  height: 10px;
+  background-color: #f39c12; /* Color del confeti */
+  position: absolute;
+  border-radius: 50%;
+  animation: confetti-fall 4s ease-out infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+}
